@@ -1,0 +1,33 @@
+@startuml oaleta
+
+class Paleta {
+    - sabor: String
+    - precio: double
+    + Paleta(sabor: String, precio: double)
+    + mostrarInformacion(): void
+}
+
+class PaletaAgua {
+    - baseAgua: boolean
+    + PaletaAgua(sabor: String, precio: double, baseAgua: boolean)
+    + mostrarBaseAgua(): void
+    + nuevoPrecio(): void
+    + paletaGrandeOChica(): void
+}
+
+class PaletaCrema {
+    - cremosa: boolean
+    + PaletaCrema(sabor: String, precio: double, cremosa: boolean) throws PrecioNegativoException
+    + mostrarBaseCrema(): void
+    + nuevoPrecio(): void
+    + paletaGrandeOChica(): void
+}
+
+class PrecioNegativoException {
+    + PrecioNegativoException(mensaje: String)
+}
+
+Paleta --|> PaletaAgua
+Paleta --|> PaletaCrema
+
+@enduml
