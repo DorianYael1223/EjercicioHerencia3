@@ -1,33 +1,34 @@
-@startuml oaleta
+@startuml
 
-class Paleta {
-    - sabor: String
-    - precio: double
-    + Paleta(sabor: String, precio: double)
-    + mostrarInformacion(): void
+class Paleta<T> {
+    -sabor: T
+    -precio: double
+    +Paleta(sabor: T, precio: double)
+    +mostrarInformacion(): void
 }
 
-class PaletaAgua {
-    - baseAgua: boolean
-    + PaletaAgua(sabor: String, precio: double, baseAgua: boolean)
-    + mostrarBaseAgua(): void
-    + nuevoPrecio(): void
-    + paletaGrandeOChica(): void
+class PaletaAgua<T> {
+    -baseAgua: boolean
+    +PaletaAgua(sabor: T, precio: double, baseAgua: boolean)
+    +mostrarBaseAgua(): void
+    +nuevoPrecio(): void
+    +paletaGrandeOChica(): void
 }
 
-class PaletaCrema {
-    - cremosa: boolean
-    + PaletaCrema(sabor: String, precio: double, cremosa: boolean) throws PrecioNegativoException
-    + mostrarBaseCrema(): void
-    + nuevoPrecio(): void
-    + paletaGrandeOChica(): void
+class PaletaCrema<T> {
+    -cremosa: boolean
+    +PaletaCrema(sabor: T, precio: double, cremosa: boolean) throws PrecioNegativoException
+    +mostrarBaseCrema(): void
+    +nuevoPrecio(): void
+    +paletaGrandeOChica(): void
 }
 
 class PrecioNegativoException {
-    + PrecioNegativoException(mensaje: String)
+    +PrecioNegativoException(mensaje: String)
 }
 
-Paleta --|> PaletaAgua
-Paleta --|> PaletaCrema
+PaletaAgua --|> Paleta
+PaletaCrema --|> Paleta
+PrecioNegativoException --|> Exception
 
 @enduml

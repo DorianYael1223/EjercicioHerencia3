@@ -1,8 +1,9 @@
 package EjercicioHerencia3;
 
-class PaletaCrema <T> extends Paleta <T>{
-    private boolean cremosa; 
-public PaletaCrema(T sabor, double precio, boolean cremosa) throws PrecioNegativoException {
+class PaletaCrema<T> extends Paleta<T> {
+    private boolean cremosa; // Cream-based or not
+
+    public PaletaCrema(T sabor, double precio, boolean cremosa) throws PrecioNegativoException {
         super(sabor, precio);
         this.cremosa = cremosa;
 
@@ -12,15 +13,18 @@ public PaletaCrema(T sabor, double precio, boolean cremosa) throws PrecioNegativ
     }
 
     public void mostrarBaseCrema() {
+        // Display whether the lollipop has a cream-based base or not
         System.out.println("Base de crema: " + (cremosa ? "Si" : "No"));
     }
 
     public void nuevoPrecio() {
-        double precionuevo = precio + 6;
-        System.out.println("El nuevo precio es: $" + precionuevo);
+        // Calculate and display the new price of the lollipop
+        double nuevoPrecio = precio + 6;
+        System.out.println("El nuevo precio es: $" + nuevoPrecio);
     }
 
     public void paletaGrandeOChica() {
+        // Determine and display whether the lollipop is large or small
         if (precio <= 15) {
             System.out.println("Es una paleta chica.");
         } else {
@@ -28,6 +32,7 @@ public PaletaCrema(T sabor, double precio, boolean cremosa) throws PrecioNegativ
         }
     }
 }
+
 class PrecioNegativoException extends Exception {
     public PrecioNegativoException(String mensaje) {
         super(mensaje);
