@@ -1,9 +1,9 @@
 package EjercicioHerencia3;
 
-class PaletaAgua extends Paleta {
+class PaletaAgua<T> extends Paleta<T> {
     private boolean baseAgua;
 
-    public PaletaAgua(String sabor, double precio, boolean baseAgua) {
+    public PaletaAgua(T sabor, double precio, boolean baseAgua) {
         super(sabor, precio);
         this.baseAgua = baseAgua;
     }
@@ -25,3 +25,4 @@ class PaletaAgua extends Paleta {
         }
     }
 }
+

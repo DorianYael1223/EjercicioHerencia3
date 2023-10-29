@@ -1,10 +1,10 @@
 package EjercicioHerencia3;
 
-class Paleta {
-    protected String sabor;
+class Paleta<T> {
+    protected T sabor;
     protected double precio;
 
-    public Paleta(String sabor, double precio) {
+    public Paleta(T sabor, double precio) {
         this.sabor = sabor;
         this.precio = precio;
     }
@@ -13,4 +13,5 @@ class Paleta {
         System.out.println("Sabor: " + sabor + ", precio: $" + precio);
     }
 }
+
 

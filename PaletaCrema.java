@@ -1,8 +1,8 @@
 package EjercicioHerencia3;
 
-class PaletaCrema extends Paleta {
+class PaletaCrema <T> extends Paleta <T>{
     private boolean cremosa; 
-public PaletaCrema(String sabor, double precio, boolean cremosa) throws PrecioNegativoException {
+public PaletaCrema(T sabor, double precio, boolean cremosa) throws PrecioNegativoException {
         super(sabor, precio);
         this.cremosa = cremosa;
 
