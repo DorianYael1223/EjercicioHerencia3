@@ -27,5 +27,8 @@ class PaletaAgua<T> extends Paleta<T> {
             System.out.println("Paleta grande.");
         }
     }
+
+    public void mostrarBaseCrema() {
+    }
 }
 
