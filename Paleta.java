@@ -9,8 +9,13 @@ class Paleta<T> {
         this.precio = precio;
     }
 
+    public T getSabor() {
+        return sabor;
+    }
+
     public void mostrarInformacion() {
         // Display information about the lollipop
-        System.out.println("Sabor: " + sabor + ", precio: $" + precio);
+        System.out.println("Sabor: " + sabor + " , " + "Precio: " + precio);
+
     }
 }

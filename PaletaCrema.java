@@ -11,7 +11,6 @@ class PaletaCrema<T> extends Paleta<T> {
             throw new PrecioNegativoException("El precio no puede ser negativo.");
         }
     }
-
     public void mostrarBaseCrema() {
         // Display whether the lollipop has a cream-based base or not
         System.out.println("Base de crema: " + (cremosa ? "Si" : "No"));

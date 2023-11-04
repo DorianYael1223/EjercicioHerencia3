@@ -3,9 +3,13 @@ package EjercicioHerencia3;
 class PaletaAgua<T> extends Paleta<T> {
     private boolean baseAgua; // Water-based or not
 
-    public PaletaAgua(T sabor, double precio, boolean baseAgua) {
+    public PaletaAgua(T sabor, double precio, boolean baseAgua) throws PrecioAguaNegativoException{
         super(sabor, precio);
         this.baseAgua = baseAgua;
+
+        if (precio < 0) {
+            throw new PrecioAguaNegativoException("El precio no puede ser negativo.");
+        }
     }
 
     public void mostrarBaseAgua() {
@@ -27,8 +31,10 @@ class PaletaAgua<T> extends Paleta<T> {
             System.out.println("Paleta grande.");
         }
     }
-
-    public void mostrarBaseCrema() {
-    }
+}
+    class PrecioAguaNegativoException extends Exception {
+        public PrecioAguaNegativoException(String mensaje) {
+            super(mensaje);
+        }
 }
 

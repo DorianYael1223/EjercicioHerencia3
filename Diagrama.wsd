@@ -1,34 +1,60 @@
-@startuml
+@startuml Paleta
 
-class Paleta<T> {
-    -sabor: T
-    -precio: double
-    +Paleta(sabor: T, precio: double)
-    +mostrarInformacion(): void
+' Define the generic class for paleta
+class Paleta {
+    - sabor: T
+    - precio: double
+    + Paleta(sabor: T, precio: double)
+    + getSabor(): T
+    + mostrarInformacion(): void
 }
 
-class PaletaAgua<T> {
-    -baseAgua: boolean
-    +PaletaAgua(sabor: T, precio: double, baseAgua: boolean)
-    +mostrarBaseAgua(): void
-    +nuevoPrecio(): void
-    +paletaGrandeOChica(): void
+' Define the class for PaletaAgua
+class PaletaAgua {
+    - baseAgua: boolean
+    + PaletaAgua(sabor: T, precio: double, baseAgua: boolean)
+    + mostrarBaseAgua(): void
+    + nuevoPrecio(): void
+    + paletaGrandeOChica(): void
 }
 
-class PaletaCrema<T> {
-    -cremosa: boolean
-    +PaletaCrema(sabor: T, precio: double, cremosa: boolean) throws PrecioNegativoException
-    +mostrarBaseCrema(): void
-    +nuevoPrecio(): void
-    +paletaGrandeOChica(): void
+' Define the class for PrecioAguaNegativoException
+class PrecioAguaNegativoException {
+    + PrecioAguaNegativoException(mensaje: String)
 }
 
+' Define the class for PaletaCrema
+class PaletaCrema {
+    - cremosa: boolean
+    + PaletaCrema(sabor: T, precio: double, cremosa: boolean)
+    + mostrarBaseCrema(): void
+    + nuevoPrecio(): void
+    + paletaGrandeOChica(): void
+}
+
+' Define the class for PrecioNegativoException
 class PrecioNegativoException {
-    +PrecioNegativoException(mensaje: String)
+    + PrecioNegativoException(mensaje: String)
 }
 
+' Define the relationships
 PaletaAgua --|> Paleta
+PrecioAguaNegativoException --|> Exception
 PaletaCrema --|> Paleta
 PrecioNegativoException --|> Exception
+Main --> Paleta: Creates
+Main --> PaletaAgua: Creates
+Main --> PaletaCrema: Creates
+
+' Main class
+class Main {
+    + main(args: String[]): void
+}
+
+Main --> Paleta: Creates
+Main --> PaletaAgua: Creates
+Main --> PrecioAguaNegativoException: Creates
+Main --> PaletaCrema: Creates
+Main --> PrecioNegativoException: Creates
 
 @enduml
