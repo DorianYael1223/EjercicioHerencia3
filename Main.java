@@ -55,9 +55,10 @@ public class Main {
         }
         //Iterator que recorre y muestra los objetos
         Iterator<Paleta<String>> it = paletas.iterator();
+        System.out.println("Caracteristicas de las paletas: ");
         while (it.hasNext()) {
-            Paleta<String> personaje = it.next();
-            personaje.mostrarInformacion();
+            Paleta<String> paletas1 = it.next();
+            paletas1.mostrarInformacion();
         }
     }
 }
